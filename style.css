@@ -48,7 +48,7 @@ body{
     min-height: 500px;
     border-radius: 10px;
     display: flex;
-    
+    position: relative;
 }
 .container .inputs .table{
     padding: 10px;
@@ -81,9 +81,12 @@ table, th, td {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
-    margin: -600px 220px 0;
+    position: absolute;
+    bottom: 59px;
+    left: 34px;
+    /* margin: -600px 220px 0; */
     cursor: pointer;
     border-radius: 8px;
     transition-duration: 0.4s;
