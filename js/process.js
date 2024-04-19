@@ -23,12 +23,25 @@ function extract_processes() {
   
 }
 
+function get_Processes_on_time(processes, time) {
+  var processesAfterTime = [];
+
+  processes.forEach(process => {
+    if (process.AT <= time) {
+      processesAfterTime.push(process);
+    }
+  });
+
+  return processesAfterTime;
+}
+
+
 function aval_processes(Processes , time) {
   
 }
 
-extract_processes();
-Processes.forEach(element => {
-  console.log(element);
+// extract_processes();
+// Processes.forEach(element => {
+//   console.log(element);
   
-});
+// });
