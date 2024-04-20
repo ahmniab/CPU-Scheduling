@@ -24,7 +24,7 @@ function extract_processes() {
 }
 
 function get_Processes_on_time(processes, time) {
-  var processesAfterTime = [];
+  var processes_on_Time = [];
 
   processes.forEach(process => {
     if (process.AT <= time) {
@@ -36,8 +36,9 @@ function get_Processes_on_time(processes, time) {
 }
 
 
-function aval_processes(Processes , time) {
-  
+
+function get_curr_process(extracted_Prss ,prss_ontim) {
+
 }
 
 // extract_processes();
