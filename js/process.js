@@ -35,11 +35,53 @@ function get_Processes_on_time(processes, time) {
   return processesAfterTime;
 }
 
+// "Apply Of :get_curr_process(extracted_Prss, prss_ontim)."
+// const extracted_Prss = ['process1', 'process2', 'process3'];
+// const prss_ontim = [
+//   { process: 'process1', time: 5 },
+//   { process: 'process2', time: 3 },
+//   { process: 'process3', time: 7 },
+//   { process: 'process4', time: 2 }
+// ];
+
+// const leastProcess = get_curr_process(extracted_Prss, prss_ontim);
+// console.log(leastProcess); 
+// console.log(extracted_Prss);
 
 
-function get_curr_process(extracted_Prss ,prss_ontim) {
+function get_curr_process(extracted_Prss, prss_ontim) {
 
+  const processes = [];
+
+
+  for (let i = 0; i < extracted_Prss.length; i++) {
+   
+    const process = extracted_Prss[i];
+
+  
+    for (let j = 0; j < prss_ontim.length; j++) {
+
+      if (prss_ontim[j].process === process) {
+       
+        processes.push({ process, time: prss_ontim[j].time });
+
+       
+        break;
+      }
+    }
+  }
+
+  processes.sort((a, b) => a.time - b.time);
+  const leastProcess = processes[0];
+
+  const index = extracted_Prss.indexOf(leastProcess.process);
+  if (index > -1) {
+    extracted_Prss.splice(index, 1);
+  }
+
+  return leastProcess.process;
 }
+
 
 // extract_processes();
 // Processes.forEach(element => {
