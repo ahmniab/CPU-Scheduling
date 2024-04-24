@@ -112,5 +112,31 @@
     </div>
     </div>
     <script src="js/process.js"></script>
+<script>
+    function addData() {
+        var arrivalInput = document.getElementById("arrivalTime");
+        var burstInput = document.getElementById("burstTime");
+        var arrivalError = document.getElementById("arrivalError");
+        var burstError = document.getElementById("burstError");
+
+        arrivalError.textContent = "";
+        burstError.textContent = "";
+
+        if (arrivalInput.value <= 0) {
+            arrivalError.textContent = "Arrival time must be greater than 0.";
+            return;
+        }
+
+        // Validating burst time
+        if (burstInput.value <= 0) {
+            burstError.textContent = "Burst time must be greater than 0.";
+            return;
+        }
+
+        console.log("Arrival Time: " + arrivalInput.value);
+        console.log("Burst Time: " + burstInput.value);
+
+    }
+</script>
 </body>
 </html>
