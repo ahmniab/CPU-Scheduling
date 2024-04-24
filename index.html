@@ -15,6 +15,7 @@
                     <div class="key">pid</div>
                     <div class="val">Process ID</div>
                 </div>
+
                 <div class="el">
                     <div class="key">AT</div>
                     <div class="val">Arrival Time</div>
@@ -36,10 +37,32 @@
                     <div class="val">Response Time</div>
                 </div>
             </div>
+
             
+
             <div class="inputs">
-                <div class="add"></div>
+
+                <div class="add"> <div class="container">
+    <h2>Add Arrival Time & Burst Time</h2>
+    <form id="inputForm">
+        <div class="input-group">
+            <label for="arrivalTime /n"><p>ArrivalTime:</p></label>
+            <input type="number" id="arrivalTime" name="arrivalTime" min="1" required>
+            <span class="error" id="arrivalError"></span>
+        </div>
+
+        <div class="input-group">
+            <label  for="burstTime"><p>burst time:</p></label>
+            <input type="number" id="burstTime" name="burstTime" min="1" required>
+            <span class="error" id="burstError"></span>
+        </div>
+
+        <button type="button" onclick="addData()">Add</button>
+    </form>
+</div> </div>
+
                 <div class="table">
+
                     <table>
                         <tr>
                           <th>pid</th>
@@ -57,8 +80,7 @@
                           <td></td>
                           <td></td>
                         </tr>
-
-                        
+                  
                       </table>
                 </div>
                 <button class="reset-button" onclick="location.reload()">reset</button>
