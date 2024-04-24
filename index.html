@@ -1,116 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Shortest Job First</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Shortest Job First</title>
 </head>
+
 <body>
-    <div class="parent">
-        <div class="container">
-            <h1>Shortest Job First (Non-Preemptive)</h1>
-            <div class="info">
-                <div class="el">
-                    <div class="key">pid</div>
-                    <div class="val">Process ID</div>
-                </div>
+  <div class="parent">
+    <div class="container">
+      <h1>Shortest Job First (Non-Preemptive)</h1>
+      <div class="info">
+        <div class="el">
+          <div class="key">pid</div>
+          <div class="val">Process ID</div>
+        </div>
 
-                <div class="el">
-                    <div class="key">AT</div>
-                    <div class="val">Arrival Time</div>
-                </div>
-                <div class="el">
-                    <div class="key">BT</div>
-                    <div class="val">Burst Time</div>
-                </div>
-                <div class="el">
-                    <div class="key">WT</div>
-                    <div class="val">Waiting Time</div>
-                </div>
-                <div class="el">
-                    <div class="key">TAT</div>
-                    <div class="val">Turnaround Time</div>
-                </div>
-                <div class="el">
-                    <div class="key">RT</div>
-                    <div class="val">Response Time</div>
-                </div>
-            </div>
+        <div class="el">
+          <div class="key">AT</div>
+          <div class="val">Arrival Time</div>
+        </div>
+        <div class="el">
+          <div class="key">BT</div>
+          <div class="val">Burst Time</div>
+        </div>
+        <div class="el">
+          <div class="key">WT</div>
+          <div class="val">Waiting Time</div>
+        </div>
+        <div class="el">
+          <div class="key">TAT</div>
+          <div class="val">Turnaround Time</div>
+        </div>
+        <div class="el">
+          <div class="key">RT</div>
+          <div class="val">Response Time</div>
+        </div>
+      </div>
 
+
+
+      <div class="inputs">
+
+        <div class="add">
+          <div class="container">
+            <h2>Add Arrival Time & Burst Time</h2>
+            <form id="inputForm">
+              <div class="input-group">
+                <label for="arrivalTime">
+                  <p>ArrivalTime:</p>
+                </label>
+                <input type="text" id="arrivalTime"  >
+                <span class="error" id="arrivalError"></span>
+              </div>
+
+              <div class="input-group">
+                <label for="burstTime">
+                  <p>burst time:</p>
+                </label>
+                <input type="text" id="burstTime"  >
+                <span class="error" id="burstError"></span>
+              </div>
+
+              <button type="button" onclick="addData()">Add</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="table">
+
+          <table id="table">
+            <tr>
+              <th>pid</th>
+              <th>AT</th>
+              <th>BT</th>
+              <th>WT</th>
+              <th>TAT</th>
+              <th>RT</th>
+            </tr>
             
 
-            <div class="inputs">
-
-                <div class="add"> <div class="container">
-    <h2>Add Arrival Time & Burst Time</h2>
-    <form id="inputForm">
-        <div class="input-group">
-            <label for="arrivalTime /n"><p>ArrivalTime:</p></label>
-            <input type="number" id="arrivalTime" name="arrivalTime" min="1" required>
-            <span class="error" id="arrivalError"></span>
+          </table>
         </div>
-
-        <div class="input-group">
-            <label  for="burstTime"><p>burst time:</p></label>
-            <input type="number" id="burstTime" name="burstTime" min="1" required>
-            <span class="error" id="burstError"></span>
+        <button class="reset-button" onclick="location.reload()">reset</button>
+        <button class="play-button">play</button>
+      </div>
+    </div>
+    <div id="chart-div">
+      <div id="main-div">
+        <div class="start-time">
+          <div>0</div>
+          Start Time
         </div>
+        <div class="processes">
+          <div class="process">
+            <div class="Time">2</div>
+            P1
+          </div>
+          <div class="process">
+            <div class="Time">4</div>
+            P2
+          </div>
+          <div class="process">
+            <div class="Time">6</div>
+            P3
 
-        <button type="button" onclick="addData()">Add</button>
-    </form>
-</div> </div>
-
-                <div class="table">
-
-                    <table>
-                        <tr>
-                          <th>pid</th>
-                          <th>AT</th>
-                          <th>BT</th>
-                          <th>WT</th>
-                          <th>TAT</th>
-                          <th>RT</th>
-                        </tr>
-                        <tr>
-                          <td>10</td>
-                          <td>10</td>
-                          <td>5</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
-                  
-                      </table>
-                </div>
-                <button class="reset-button" onclick="location.reload()">reset</button>
-                <button class="play-button">play</button>
-            </div>
-        </div>
-        <div id="chart-div">
-            <div id="main-div">
-              <div class="start-time">
-                <div>0</div>
-                Start Time
-              </div>
-              <div class="processes">
-                <div class="process">
-                    <div class="Time">2</div>
-                    P1
-                  </div>
-                  <div class="process">
-                    <div class="Time">4</div>
-                    P2
-                  </div>
-                  <div class="process">
-                  <div class="Time">6</div> 
-                    P3
-                            
-            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    <script src="js/process.js"></script>
+  </div>
+  <script src="js/process.js"></script>
 </body>
+
 </html>

@@ -1,201 +1,276 @@
-*{
-    padding: 10;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 10;
+  margin: 0;
+  box-sizing: border-box;
 }
+
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-body{
-    /* background-color: #18191a; */
-    /* color: #d3d2d0; */
-    font-family: Arial, Helvetica, sans-serif;
+  width: 10px;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.container > .info .el .key{
-    font-weight: 800;
-}
-.container > .info .el .key::after{
- content: "=";
- margin-left: 5px;
-}
-.container > .info .el{
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-
-    
-}
-.container > .info{
-    width: 70%;
-    margin: 30px;
-    font-size: 25px;
-    background-color: azure;
-    padding: 20px;
-}
-.container > h1{
-    margin: 20px;
-    margin-top: 100px;
-    text-align: center;
-}
-.container .inputs{
-    background-color: #F3D0D7;
-    width: 80%;
-    min-height: 500px;
-    border-radius: 10px;
-    display: flex;
-    position: relative;
-}
-.container .inputs .table{
-    padding: 10px;
-    height: 400px;
-    margin-left: 150px;
-    margin-top: 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-table, th, td {
-    border: 1px solid;
-    text-align: center;
-}
-.container .inputs .table table{
-    border-collapse: collapse;
-    width: 500px;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
-.container .inputs .add{
-    background-color: #8576FF;
-    width: 310px;
-    height: 350px;
-    border-radius: 10px;
-    margin: 20px 30px 0 ;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  /* background-color: #18191a; */
+  /* color: #d3d2d0; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container>.info .el .key {
+  font-weight: 800;
+}
+
+.container>.info .el .key::after {
+  content: "=";
+  margin-left: 5px;
+}
+
+.container>.info .el {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+
+}
+
+.container>.info {
+  width: 70%;
+  margin: 30px;
+  font-size: 25px;
+  background-color: azure;
+  padding: 20px;
+}
+
+.container>h1 {
+  margin: 20px;
+  margin-top: 100px;
+  text-align: center;
+
+}
+
+.container .inputs {
+  background-color: #F3D0D7;
+  width: 80%;
+  min-height: 500px;
+
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+}
+
+.container .inputs .table {
+  padding: 10px;
+  height: 400px;
+  margin-left: 150px;
+  margin-top: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+}
+
+.container .inputs .table table {
+  border-collapse: collapse;
+  width: 500px;
+}
+
+.container .inputs .add {
+  background-color: #8576FF;
+  width: 310px;
+  height: 350px;
+  border-radius: 10px;
+  margin: 20px 30px 0;
 
 
 }
 
 .reset-button {
-    background-color: #434643; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    position: absolute;
-    bottom: 59px;
-    left: 34px;
-    /* margin: -600px 220px 0; */
-    cursor: pointer;
-    border-radius: 10px;
-    transition-duration: 0.4s;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
-    width: 145px;
-  }
-  
-  .reset-button:hover {
-    background-color: #ff70ec; 
-  }
+  background-color: #434643;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  position: absolute;
+  bottom: 59px;
+  left: 34px;
+  /* margin: -600px 220px 0; */
+  cursor: pointer;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 145px;
+}
+
+.reset-button:hover {
+  background-color: #ff70ec;
+}
+
 .play-button {
-    background-color: #434643; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    position: absolute;
-    bottom: 59px;
-    left: 193px;
-    /* margin: -600px 220px 0; */
-    cursor: pointer;
-    border-radius: 10px;
-    transition-duration: 0.4s;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
-    width: 145px;
-  }
-  
-  .play-button:hover {
-    background-color: #ff70ec; 
-  }
-  #chart-div {
-    width: 70%;
-    height: 40px;
-    margin-left: 170px;
-  }
-  
-  #main-div {
-    display: flex;
-    width: 100%;
-    height: 40px;
-    margin-top: 50px;
-  }
-  
-  .start-time {
-    position: relative;
-    background-color: rgb(202, 216, 229);
-    width: 250px;
-    text-align: center;
-    font-size: larger;
-    line-height: 40px;
-    border: 0px solid black;
-  }
-  .start-time>div{
-    position: absolute;
-    bottom: -35px;
-    right: -5px;
-  }
-  
-  .processes {
-    background-color: red;
-    display: flex;
-    /* flex: 1; */
-    margin: 0;
-    justify-content: center;
-    padding: 0px;
-  }
-  
-  .process {
-    position: relative;
-    width: 200px;
-    height: 40px;
-    text-align: center;
-    font-size: larger;
-    border: 0.5px solid rgb(236, 229, 229);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .Time {
-    position: absolute;
-    bottom: -25px;
-    right: -5px;
-    
-  }
-  
-  
+  background-color: #434643;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  position: absolute;
+  bottom: 59px;
+  left: 193px;
+  /* margin: -600px 220px 0; */
+  cursor: pointer;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 145px;
+}
+
+
+#chart-div {
+  width: 70%;
+  height: 40px;
+  margin-left: 170px;
+}
+
+#main-div {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin-top: 50px;
+}
+
+.start-time {
+  position: relative;
+  background-color: rgb(202, 216, 229);
+  width: 250px;
+  text-align: center;
+  font-size: larger;
+  line-height: 40px;
+  border: 0px solid black;
+}
+
+.start-time>div {
+  position: absolute;
+  bottom: -35px;
+  right: -5px;
+}
+
+.processes {
+  background-color: red;
+  display: flex;
+  /* flex: 1; */
+  margin: 0;
+  justify-content: center;
+  padding: 0px;
+}
+
+.process {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  font-size: larger;
+  border: 0.5px solid rgb(236, 229, 229);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Time {
+  position: absolute;
+  bottom: -25px;
+  right: -5px;
+
+}
+
+Form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add .container {
+  align-items: center;
+  padding: 50px;
+  padding-top: 15px;
+  gap: 20px;
+}
+input[type='text']{
+  height: 30px;
+  /* background-color: #434643; */
+}
+input[type='text'] {
+  width: 100%;
+  max-width: 220px;
+  height: 45px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+}
+
+input[type='text']:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+input[type='text']:active {
+  transform: scale(0.95);
+}
+
+input[type='text']:focus {
+  border: 2px solid grey;
+}
+
+.add button {
+  background-color: #434643;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 145px;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #ff70ec;
+}
