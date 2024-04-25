@@ -172,7 +172,7 @@ td {
 
 #main-div {
   display: flex;
-  min-width: 100vw;
+  min-width: 80vw;
   min-height: 40px;
   margin-top: 50px;
   flex-shrink: 0;/*

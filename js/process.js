@@ -146,7 +146,7 @@ function add_to_chart(end_time , pid , BT) {
   
 }
 
-for (let index = 1 ; index < 5; index++ ) {
-  add_to_chart((index-1)+index*2 , index+1,index*2+1);
+// for (let index = 1 ; index < 5; index++ ) {
+//   add_to_chart((index-1)+index*2 , index+1,index*2+1);
   
-}
+// }
