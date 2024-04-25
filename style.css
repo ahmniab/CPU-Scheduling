@@ -59,7 +59,7 @@ body {
   width: 70%;
   margin: 30px;
   font-size: 25px;
-  background-color: azure;
+  background-color:#e2e7eb ;
   padding: 20px;
 }
 
@@ -102,7 +102,7 @@ td {
 }
 
 .container .inputs .add {
-  background-color: #8576FF;
+  background-color: #dae609;
   width: 310px;
   height: 350px;
   border-radius: 10px;
@@ -132,7 +132,7 @@ td {
 }
 
 .reset-button:hover {
-  background-color: #ff70ec;
+  background-color:#2e9277 ;
 }
 
 .play-button {
@@ -171,7 +171,7 @@ td {
 
 .start-time {
   position: relative;
-  background-color: rgb(202, 216, 229);
+  background-color: rgb(202,216,229);
   width: 250px;
   text-align: center;
   font-size: larger;
@@ -186,7 +186,7 @@ td {
 }
 
 .processes {
-  background-color: red;
+  background-color: #1da80d;
   display: flex;
   /* flex: 1; */
   margin: 0;
@@ -272,5 +272,5 @@ input[type='text']:focus {
 }
 
 button:hover {
-  background-color: #ff70ec;
+  background-color: #2e9277;
 }
