@@ -125,4 +125,23 @@ function addData() {
   else{
     insert_to_table(AT.value,BT.value);
   }
+  AT.value="";
+  BT.value="";
 }
+
+function add_to_chart(end_time , pid , BT) {
+  let processes = document.getElementById("processes");
+  let new_p_block = document.createElement("div");
+  new_p_block.classList.add("process");
+  new_p_block.innerHTML = `
+  <div class="Time" style="width: ${BT*60}px;">${end_time}</div>
+  P${pid}
+  `
+  processes.appendChild(new_p_block);
+  
+}
+
+// for (let index = 0 , i = 0; i < 3; index++ , i++) {
+//   add_to_chart(index , index+1,index);
+  
+// }
