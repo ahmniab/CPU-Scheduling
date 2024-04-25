@@ -129,19 +129,24 @@ function addData() {
   BT.value="";
 }
 
+let sel = 0;
 function add_to_chart(end_time , pid , BT) {
+  let colors = ["#1da80d" , "#9c0da8" , "#5550e3" , "#e39550","#c3e350","#8ce350","#a850e3","#9f5894","#ecd62782"];
   let processes = document.getElementById("processes");
   let new_p_block = document.createElement("div");
   new_p_block.classList.add("process");
+  // new_p_block.style.width = `${BT*60}px`;
+  // new_p_block.style.background = colors[sel%colors.length];
   new_p_block.innerHTML = `
-  <div class="Time" style="width: ${BT*60}px;">${end_time}</div>
+  <div class="Time">${end_time}</div>
   P${pid}
   `
+  new_p_block.setAttribute("style" , `background-color: ${colors[sel++%colors.length]};width: ${BT*60}px;`)
   processes.appendChild(new_p_block);
   
 }
 
-// for (let index = 0 , i = 0; i < 3; index++ , i++) {
-//   add_to_chart(index , index+1,index);
+for (let index = 1 ; index < 5; index++ ) {
+  add_to_chart((index-1)+index*2 , index+1,index*2+1);
   
-// }
+}

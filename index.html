@@ -84,7 +84,7 @@
 
           </table>
         </div>
-        <button class="reset-button" onclick="location.reload()">reset</button>
+        <button class="reset-button" onclick="reset()">reset</button>
         <button class="play-button">play</button>
       </div>
     </div>
@@ -95,19 +95,6 @@
           Start Time
         </div>
         <div class="processes" id="processes">
-          <!-- <div class="process">
-            <div class="Time" >2</div>
-            P1
-          </div>
-          <div class="process">
-            <div class="Time">4</div>
-            P2
-          </div>
-          <div class="process">
-            <div class="Time">6</div>
-            P3
-
-          </div> -->
         </div>
       </div>
     </div>
@@ -138,6 +125,12 @@
         console.log("Burst Time: " + burstInput.value);
 
     }*/
+    function reset() {
+      document.getElementById("arrivalTime").value="";
+      document.getElementById("burstTime").value="";
+      location.reload();
+      
+    }
 </script>
 </body>
 
