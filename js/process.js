@@ -1,12 +1,16 @@
 class Process {
-  constructor(pid, AT, BT, WT, TAT, RT) {
+  constructor(pid, AT, BT, WT, TAT, RT,index) {
     this.pid = pid;
     this.AT = AT;
     this.BT = BT;
     this.WT = WT;
     this.TAT = TAT;
     this.RT = RT;
+    this.ind = index;
+    this.is_done = false;
+
   }
+  
 }
 
 var Processes = new Array();
@@ -17,7 +21,15 @@ function extract_processes() {
   for (let i = 1; i < rows.length; i++) {
 
     var row = rows[i].querySelectorAll("td");
-    Processes.push(new Process(Number(row[0].innerText), Number(row[1].innerText), Number(row[2].innerText), Number(row[3].innerText), Number(row[4].innerText), Number(row[5].innerText)));
+    Processes.push(new Process(
+                      row[0].innerText,
+                      Number(row[1].innerText), 
+                      Number(row[2].innerText), 
+                      Number(row[3].innerText), 
+                      Number(row[4].innerText), 
+                      Number(row[5].innerText),i)
+                      );
+    
 
   }
 
@@ -27,7 +39,7 @@ function get_Processes_on_time(processes, time) {
   var processes_on_time = [];
 
   processes.forEach(process => {
-    if (process.AT <= time) {
+    if (process.AT <= time && !process.is_done) {
       processes_on_time.push(process);
     }
   });
@@ -40,24 +52,29 @@ function get_Processes_on_time(processes, time) {
 // const leastProcess = get_curr_process(extracted_Prss, prss_ontim);
 // console.log(leastProcess); 
 
-function pc(extracted_Prss, prss_ontim) {
+function get_curr_process(time) {
+  prss_ontim = get_Processes_on_time(Processes , time);
+  if (prss_ontim.length == 0) {
+    return null;
+  }
   prss_ontim.sort((a, b) => a.BT - b.BT);
   let curr = prss_ontim[0];
-  extracted_Prss.splice(extracted_Prss.indexOf(curr), 1);
+  // extracted_Prss.splice(extracted_Prss.indexOf(curr), 1);
+  curr.is_done = true;
   return curr;
 
 }
-var extracted_Prss = [new Process(1, 1, 2, 0, 0, 0), new Process(2, 2, 3, 0, 0, 0), new Process(3, 2, 2, 0, 0, 0), new Process(4, 2, 2, 0, 0, 0),];
-console.log('extracted_Prss');
-console.log(extracted_Prss);
+// var extracted_Prss = [new Process(1, 1, 2, 0, 0, 0), new Process(2, 2, 3, 0, 0, 0), new Process(3, 2, 2, 0, 0, 0), new Process(4, 2, 2, 0, 0, 0),];
+// console.log('extracted_Prss');
+// console.log(extracted_Prss);
 
-var prss_ontime = get_Processes_on_time(extracted_Prss, 3);
+// var prss_ontime = get_Processes_on_time(extracted_Prss, 3);
 
-console.log(pc(extracted_Prss, prss_ontime));
-console.log(extracted_Prss);
+// console.log(pc(extracted_Prss, prss_ontime));
+// console.log(extracted_Prss);
 
 
-function get_curr_process(extracted_Prss, prss_ontime) {
+/*function get_curr_process(extracted_Prss, prss_ontime) {
 
   const processes = [];
 
@@ -88,7 +105,7 @@ function get_curr_process(extracted_Prss, prss_ontime) {
   }
 
   return leastProcess.process;
-}
+}*/
 
 pid = 1;
 function insert_to_table(AT, BT) {
@@ -139,7 +156,7 @@ function add_to_chart(end_time , pid , BT) {
   // new_p_block.style.background = colors[sel%colors.length];
   new_p_block.innerHTML = `
   <div class="Time">${end_time}</div>
-  P${pid}
+  ${pid}
   `
   new_p_block.setAttribute("style" , `background-color: ${colors[sel++%colors.length]};width: ${BT*60}px;`)
   processes.appendChild(new_p_block);
@@ -147,6 +164,44 @@ function add_to_chart(end_time , pid , BT) {
 }
 
 // for (let index = 1 ; index < 5; index++ ) {
-//   add_to_chart((index-1)+index*2 , index+1,index*2+1);
+//   add_to_chart((index-1)+index*2 , index+1,index);
   
 // }
+
+function all_time() {
+  let time = 0;
+  Processes.forEach((p)=>{
+    time += p.BT;
+    console.log(p);
+  })
+  return time;
+}
+
+function insert_times(index , WT , TAT , RT) {
+  let p_rows = document.querySelectorAll('.table tr')[index].querySelectorAll('td');
+  p_rows[3].innerHTML = WT;
+  p_rows[4].innerHTML = TAT;
+  p_rows[5].innerHTML = RT;
+}
+
+function play(){
+  extract_processes();
+  if (Processes.length < 1) {
+    alert("you must add at least 1 process");
+    return;
+  }
+  let total_BT = all_time();
+  console.log(total_BT);
+  for (let time = 0 , i = 0; time < total_BT; i++) {
+    let p = get_curr_process(time);
+    console.log(p);
+    let end_time =time + p.BT;
+    add_to_chart(end_time,p.pid,p.BT);
+    p.TAT = end_time - p.AT;
+    p.WT = p.TAT - p.BT;
+    p.RT = (end_time - p.BT) - p.AT;
+    insert_times(p.index , p.WT , p.TAT ,p.RT);
+    time+= p.BT;
+  }
+}
+

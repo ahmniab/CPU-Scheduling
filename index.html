@@ -85,7 +85,7 @@
           </table>
         </div>
         <button class="reset-button" onclick="reset()">reset</button>
-        <button class="play-button">play</button>
+        <button class="play-button" onclick="play()">play</button>
       </div>
     </div>
     <div id="chart-div">
@@ -95,36 +95,16 @@
           Start Time
         </div>
         <div class="processes" id="processes">
+          <!-- <div class="process" style="width: 200px;">
+            <div class="Time">2</div>
+            p1
+          </div> -->
         </div>
       </div>
     </div>
     </div>
     <script src="js/process.js"></script>
 <script>
-    /*function addData() {
-        var arrivalInput = document.getElementById("arrivalTime");
-        var burstInput = document.getElementById("burstTime");
-        var arrivalError = document.getElementById("arrivalError");
-        var burstError = document.getElementById("burstError");
-
-        arrivalError.textContent = "";
-        burstError.textContent = "";
-
-        if (arrivalInput.value <= 0) {
-            arrivalError.textContent = "Arrival time must be greater than 0.";
-            return;
-        }
-
-        // Validating burst time
-        if (burstInput.value <= 0) {
-            burstError.textContent = "Burst time must be greater than 0.";
-            return;
-        }
-
-        console.log("Arrival Time: " + arrivalInput.value);
-        console.log("Burst Time: " + burstInput.value);
-
-    }*/
     function reset() {
       document.getElementById("arrivalTime").value="";
       document.getElementById("burstTime").value="";

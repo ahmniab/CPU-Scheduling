@@ -186,7 +186,7 @@ td {
   position: relative;
   background-color: rgb(202,216,229);
   width: 250px;
-  min-height: 40px;
+  max-height: 40px;
   text-align: center;
   font-size: larger;
   line-height: 40px;
