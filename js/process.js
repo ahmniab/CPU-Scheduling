@@ -193,14 +193,16 @@ function play(){
   let total_BT = all_time();
   console.log(total_BT);
   for (let time = 0 , i = 0; time < total_BT; i++) {
+    
     let p = get_curr_process(time);
     console.log(p);
     let end_time =time + p.BT;
     add_to_chart(end_time,p.pid,p.BT);
+
     p.TAT = end_time - p.AT;
     p.WT = p.TAT - p.BT;
     p.RT = (end_time - p.BT) - p.AT;
-    insert_times(p.index , p.WT , p.TAT ,p.RT);
+    insert_times(p.ind , p.WT , p.TAT ,p.RT);
     time+= p.BT;
   }
 }
