@@ -158,7 +158,11 @@ function add_to_chart(end_time , pid , BT) {
   <div class="Time">${end_time}</div>
   ${pid}
   `
-  new_p_block.setAttribute("style" , `background-color: ${colors[sel++%colors.length]};width: ${BT*60}px;`)
+  let col ;
+   if (pid === ' ') col = '#fff' ;
+   else col = colors[sel++%colors.length]
+  
+  new_p_block.setAttribute("style" , `background-color: ${col};width: ${BT*60}px;`)
   processes.appendChild(new_p_block);
   
 }
@@ -168,13 +172,11 @@ function add_to_chart(end_time , pid , BT) {
   
 // }
 
-function all_time() {
-  let time = 0;
-  Processes.forEach((p)=>{
-    time += p.BT;
-    console.log(p);
-  })
-  return time;
+function is_all_done() {
+  for (let index = 0; index < Processes.length; index++) 
+    if(!Processes[index].is_done) return false;
+  
+  return true;
 }
 
 function insert_times(index , WT , TAT , RT) {
@@ -190,20 +192,29 @@ function play(){
     alert("you must add at least 1 process");
     return;
   }
-  let total_BT = all_time();
-  console.log(total_BT);
-  for (let time = 0 , i = 0; time < total_BT; i++) {
+
+  console.log(is_all_done());
+
+  for (let time = 0 , i = 0; !is_all_done(); i++) {
     
     let p = get_curr_process(time);
-    console.log(p);
-    let end_time =time + p.BT;
-    add_to_chart(end_time,p.pid,p.BT);
 
-    p.TAT = end_time - p.AT;
-    p.WT = p.TAT - p.BT;
-    p.RT = (end_time - p.BT) - p.AT;
-    insert_times(p.ind , p.WT , p.TAT ,p.RT);
-    time+= p.BT;
+    console.log(p);
+    if (p != null) {
+      // console.log('xdd');
+      let end_time =time + p.BT;
+      add_to_chart(end_time,p.pid,p.BT);
+      
+      p.TAT = end_time - p.AT;
+      p.WT = p.TAT - p.BT;
+      p.RT = p.WT;
+      insert_times(p.ind , p.WT , p.TAT ,p.RT);
+      time+= p.BT;
+    }
+    else{
+      // console.log('XDD');
+      add_to_chart(++time , ' ' , 1);
+    }
   }
 }
 
