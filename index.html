@@ -52,7 +52,7 @@
                 <label for="arrivalTime">
                   <p>Arrival Time:</p>
                 </label>
-                <input type="text" id="arrivalTime"  >
+                <input type="text" id="arrivalTime">
                 <span class="error" id="arrivalError"></span>
               </div>
 
@@ -60,7 +60,7 @@
                 <label for="burstTime">
                   <p>Burst Time:</p>
                 </label>
-                <input type="text" id="burstTime"  >
+                <input type="text" id="burstTime">
                 <span class="error" id="burstError"></span>
               </div>
 
@@ -80,38 +80,39 @@
               <th>TAT</th>
               <th>RT</th>
             </tr>
-            
+
 
           </table>
         </div>
         <button class="reset-button" onclick="reset()">reset</button>
         <button class="play-button" onclick="play()">play</button>
       </div>
-    </div>
-    <div id="chart-div">
-      <div id="main-div">
-        <div class="start-time">
-          <div>0</div>
-          Start Time
-        </div>
-        <div class="processes" id="processes">
-          <!-- <div class="process" style="width: 200px;">
-            <div class="Time">2</div>
-            p1
-          </div> -->
+      <div id="chart-div">
+        <div id="main-div">
+          <div class="start-time">
+            <div>0</div>
+            Start Time
+          </div>
+          <div class="processes" id="processes">
+            <!-- <div class="process" style="width: 200px;">
+              <div class="Time">2</div>
+              p1
+            </div> -->
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-    <script src="js/process.js"></script>
-<script>
-    function reset() {
-      document.getElementById("arrivalTime").value="";
-      document.getElementById("burstTime").value="";
-      location.reload();
       
+    </div>
+  </div>
+  <script src="js/process.js"></script>
+  <script>
+    function reset() {
+      document.getElementById("arrivalTime").value = "";
+      document.getElementById("burstTime").value = "";
+      location.reload();
+
     }
-</script>
+  </script>
 </body>
 
 </html>

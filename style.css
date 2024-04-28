@@ -295,3 +295,31 @@ input[type='text']:focus {
 button:hover {
   background-color: #2e9277;
 }
+
+.avg-times{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 25px;
+  margin-bottom: 50px;
+  width: 800px;
+  background-color: #e2e7eb;
+  padding: 30px;
+}
+.avg-times .avg-time{
+  display: flex;
+  
+}
+.avg-times .avg-time .time-name{
+  margin-right: 50px;
+  position: relative;
+  font-weight: 700;
+}
+.avg-times .avg-time .time-name::after{
+  content: '=';
+  /* margin-left: 25px; */
+  position: absolute;
+  right: -30px;
+}

@@ -167,10 +167,7 @@ function add_to_chart(end_time , pid , BT) {
   
 }
 
-// for (let index = 1 ; index < 5; index++ ) {
-//   add_to_chart((index-1)+index*2 , index+1,index);
-  
-// }
+
 
 function is_all_done() {
   for (let index = 0; index < Processes.length; index++) 
@@ -186,6 +183,29 @@ function insert_times(index , WT , TAT , RT) {
   p_rows[5].innerHTML = RT;
 }
 
+function insert_avg_times(WT , TAT , RT) {
+  let container  = document.querySelector('.container');
+  let new_times_block = document.createElement("div");
+  new_times_block.classList.add("avg-times");
+  new_times_block.innerHTML = `
+      <div class="avg-time">
+          <div class="time-name">Average Waiting Time</div>
+          <div class="value">${WT}</div>
+      </div>
+      <div class="avg-time">
+          <div class="time-name">Average Turnaround Time</div>
+          <div class="value">${TAT}</div>
+      </div>
+      <div class="avg-time">
+          <div class="time-name">Average Response Time</div>
+          <div class="value">${RT}</div>
+      </div>
+
+  `
+  container.appendChild(new_times_block);
+  
+}
+
 function play(){
   extract_processes();
   if (Processes.length < 1) {
@@ -194,6 +214,7 @@ function play(){
   }
 
   console.log(is_all_done());
+  let total_TAT = 0 , total_WT =0 , total_RT = 0;
 
   for (let time = 0 , i = 0; !is_all_done(); i++) {
     
@@ -201,20 +222,33 @@ function play(){
 
     console.log(p);
     if (p != null) {
-      // console.log('xdd');
       let end_time =time + p.BT;
       add_to_chart(end_time,p.pid,p.BT);
       
       p.TAT = end_time - p.AT;
+      total_TAT += p.TAT;
+
       p.WT = p.TAT - p.BT;
+      total_WT += p.WT
+
       p.RT = p.WT;
+      total_RT += p.RT;
+
       insert_times(p.ind , p.WT , p.TAT ,p.RT);
       time+= p.BT;
     }
     else{
-      // console.log('XDD');
       add_to_chart(++time , ' ' , 1);
     }
   }
+  insert_avg_times(total_WT /Processes.length , 
+                   total_TAT/Processes.length , 
+                   total_RT /Processes.length);
+                   
+  window.scrollBy({
+  top: window.innerHeight, // Scrolls down by the height of the viewport
+  behavior: 'smooth' // Optional, adds smooth scrolling effect
+  });
+
 }
 
