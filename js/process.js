@@ -213,6 +213,7 @@ function reset_prosseces() {
 }
 
 function play(){
+  
   reset_prosseces();
   extract_processes();
   if (Processes.length < 1) {
@@ -222,6 +223,7 @@ function play(){
 
   console.log(is_all_done());
   let total_TAT = 0 , total_WT =0 , total_RT = 0;
+  var free_time = 0;
 
   for (let time = 0 , i = 0; !is_all_done(); i++) {
     
@@ -229,6 +231,11 @@ function play(){
 
     console.log(p);
     if (p != null) {
+      if(free_time != 0){
+        add_to_chart(time , ' ' , free_time);
+        free_time = 0;
+
+      }
       let end_time =time + p.BT;
       add_to_chart(end_time,p.pid,p.BT);
       
@@ -245,7 +252,8 @@ function play(){
       time+= p.BT;
     }
     else{
-      add_to_chart(++time , ' ' , 1);
+      free_time++;
+      time++;
     }
   }
   insert_avg_times(total_WT /Processes.length , 
