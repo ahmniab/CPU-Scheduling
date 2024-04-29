@@ -185,9 +185,15 @@ function insert_times(index , WT , TAT , RT) {
 }
 
 function insert_avg_times(WT , TAT , RT) {
+  const old_times = document.getElementById('avg_times');
+  if (old_times) {
+    old_times.remove();
+    
+  }
   let container  = document.querySelector('.container');
   let new_times_block = document.createElement("div");
   new_times_block.classList.add("avg-times");
+  new_times_block.setAttribute("id" , "avg_times");
   new_times_block.innerHTML = `
       <div class="avg-time">
           <div class="time-name">Average Waiting Time</div>
