@@ -28,7 +28,6 @@ body {
   /* background-color: #18191a; */
   /* color: #d3d2d0; */
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
 }
 
 .container {
@@ -36,7 +35,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: none;
 
 }
 
@@ -166,18 +164,18 @@ td {
 #chart-div {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 70vw;
-  min-height: 300px;
-  margin-left: 170px;
+  min-width: 70vw;
+  min-height: 90px;
   overflow-y: hidden;
-  overflow-x: auto;
+  overflow-x: hidden;
   margin-bottom: 100px;
 }
 
 #main-div {
   display: flex;
-  width: 80vw;
+  margin: 0 10px;
+  min-width: 80vw;
+  max-width: 85vw;
   min-height: 40px;
   margin-top: 50px;
   flex-shrink: 0;/*
@@ -190,7 +188,7 @@ td {
 .start-time {
   position: relative;
   background-color: rgb(202,216,229);
-  width: 250px;
+  min-width: 250px;
   max-height: 40px;
   text-align: center;
   font-size: larger;
@@ -250,7 +248,6 @@ Form{
   padding: 50px;
   padding-top: 15px;
   gap: 20px;
-  overflow: hidden;
 }
 input[type='text']{
   height: 30px;
@@ -329,3 +326,4 @@ button:hover {
   position: absolute;
   right: -30px;
 }
+
