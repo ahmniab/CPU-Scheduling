@@ -16,6 +16,7 @@ class Process {
 var Processes = new Array();
 
 function extract_processes() {
+  Processes = new Array();
   var table = document.getElementById("table");
   var rows = table.querySelectorAll("tr");
   for (let i = 1; i < rows.length; i++) {
@@ -206,7 +207,13 @@ function insert_avg_times(WT , TAT , RT) {
   
 }
 
+function reset_prosseces() {
+  let processes = document.getElementById("processes");
+  processes.innerHTML = '';
+}
+
 function play(){
+  reset_prosseces();
   extract_processes();
   if (Processes.length < 1) {
     alert("you must add at least 1 process");
