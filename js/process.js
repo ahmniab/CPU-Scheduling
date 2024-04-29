@@ -160,8 +160,8 @@ function add_to_chart(end_time , pid , BT) {
   ${pid}
   `
   let col ;
-   if (pid === ' ') col = '#fff' ;
-   else col = colors[sel++%colors.length]
+  //  if (pid === ' ') col = '#fff' ;
+   /*else*/ col = colors[sel++%colors.length]
   
   new_p_block.setAttribute("style" , `background-color: ${col};width: ${BT*60}px;`)
   processes.appendChild(new_p_block);
