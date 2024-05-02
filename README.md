@@ -1,6 +1,6 @@
 # cpu scheduling simulator
 ## how to use 
-you can use [the online version](https://ahmniab.github.io/CPU-Scheduling/) 
+you can use [the online version](https://ahmniab.github.io/CPU-Scheduling/) <br>
 or you can clone it and use it offline 
 
 1- 
